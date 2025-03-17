@@ -42,7 +42,7 @@ def greedy_search(graph, start, goal, heuristic):
 
         explored.add(current_node)
 
-        for neighbor, cost in graph[current_node].items():
+        for neighbor in graph.get(current_node, []):
             if neighbor not in explored and neighbor not in came_from:
                 frontier.put((heuristic[neighbor], neighbor))
                 came_from[neighbor] = current_node
@@ -52,21 +52,22 @@ def greedy_search(graph, start, goal, heuristic):
 
 # Daftar heuristik sesuai gambar
 heuristic = {
-    'S': 6,
     'A': 4,
     'B': 3,
     'C': 3,
     'D': 1,
+    'S': 6,
     'G': 0
 }
 
 # Graf sesuai dengan gambar (menggunakan dictionary adjacency dengan bobot)
 graph = {
-    'S': {'A': 3, 'B': 2},
-    'A': {'B': 1, 'D': 5},
-    'B': {'C': 2},
-    'C': {'G': 4},
-    'D': {'G': 1, 'C': 3},
+    'S': ['A'],
+    'A': ['B', 'D'],
+    'B': ['D', 'C'],
+    'C': ['G'],
+    'D': ['G'],
+    'G': []
 }
 
 # Titik awal dan tujuan

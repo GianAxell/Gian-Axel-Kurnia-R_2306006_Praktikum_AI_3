@@ -81,11 +81,10 @@ heuristic = {
 # Updated graph adjacency list with correct costs
 graph = {
     'S': {'A': 3, 'B': 2},
-    'A': {'D': 5, 'B': 1},
-    'B': {'C': 2},
-    'C': {'D': 3, 'G': 4},
+    'A': {'B': 1, 'C': 2},
+    'B': {'D': 3,'C': 2},
+    'C': {'G': 4},
     'D': {'G': 1},
-    'G': {}
 }
 
 # Define start and goal nodes
